@@ -1,0 +1,6 @@
+﻿services:
+  marinefitbot:
+    image: marinefitbot
+    build:
+      context: .
+      dockerfile: MarineFitBot/Dockerfile

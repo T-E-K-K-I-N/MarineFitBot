@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infra", "2.Infra", "{1678CC4D-9329-4246-B7AD-27DFF9715EB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Application", "3.Application", "{470796D8-CFD6-48D4-A7D4-34C2315D3EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Domain", "4.Domain", "{1AF26A00-DCFD-4E05-9079-5DAF4AD6E690}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Tests", "5.Tests", "{0CFA9AF9-BA30-402F-96C8-00C93529A6A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Deployment", "6.Deployment", "{41DD5042-4AC8-471E-96AB-02FE4AAA91B1}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{C74836C9-3593-4AA4-9CE3-8A9113236537}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarineFitBot.Application", "MarineFitBot\MarineFitBot.Application\MarineFitBot.Application.csproj", "{E472D2BE-E35F-4E58-B691-0557CFF5182F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarineFitBot.Infra.Data", "MarineFitBot\MarineFitBot.Infra.Data\MarineFitBot.Infra.Data.csproj", "{5DD7B81C-C099-4632-A075-07624D173827}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarineFitBot.Api", "MarineFitBot\MarineFitBot.Api\MarineFitBot.Api.csproj", "{CB1A58BE-7E8D-4AA3-B109-270725C1734C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarineFitBot.Tests.UnitTests", "MarineFitBot\MarineFitBot.Tests.UnitTests\MarineFitBot.Tests.UnitTests.csproj", "{5F300C05-416F-4E76-B0A4-A93C44A55EEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarineFitBot.Domain", "MarineFitBot\MarineFitBot.Domain\MarineFitBot.Domain.csproj", "{E3C23FE5-46DD-496D-A451-34638468A4B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E472D2BE-E35F-4E58-B691-0557CFF5182F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E472D2BE-E35F-4E58-B691-0557CFF5182F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E472D2BE-E35F-4E58-B691-0557CFF5182F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E472D2BE-E35F-4E58-B691-0557CFF5182F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DD7B81C-C099-4632-A075-07624D173827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DD7B81C-C099-4632-A075-07624D173827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DD7B81C-C099-4632-A075-07624D173827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DD7B81C-C099-4632-A075-07624D173827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1A58BE-7E8D-4AA3-B109-270725C1734C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1A58BE-7E8D-4AA3-B109-270725C1734C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1A58BE-7E8D-4AA3-B109-270725C1734C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1A58BE-7E8D-4AA3-B109-270725C1734C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F300C05-416F-4E76-B0A4-A93C44A55EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F300C05-416F-4E76-B0A4-A93C44A55EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F300C05-416F-4E76-B0A4-A93C44A55EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F300C05-416F-4E76-B0A4-A93C44A55EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3C23FE5-46DD-496D-A451-34638468A4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3C23FE5-46DD-496D-A451-34638468A4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3C23FE5-46DD-496D-A451-34638468A4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3C23FE5-46DD-496D-A451-34638468A4B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E472D2BE-E35F-4E58-B691-0557CFF5182F} = {470796D8-CFD6-48D4-A7D4-34C2315D3EDB}
+		{5DD7B81C-C099-4632-A075-07624D173827} = {1678CC4D-9329-4246-B7AD-27DFF9715EB4}
+		{CB1A58BE-7E8D-4AA3-B109-270725C1734C} = {C74836C9-3593-4AA4-9CE3-8A9113236537}
+		{5F300C05-416F-4E76-B0A4-A93C44A55EEE} = {0CFA9AF9-BA30-402F-96C8-00C93529A6A5}
+		{E3C23FE5-46DD-496D-A451-34638468A4B8} = {1AF26A00-DCFD-4E05-9079-5DAF4AD6E690}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7030AB76-AFE9-462A-BDD9-D4FA2D53116E}
+	EndGlobalSection
+EndGlobal
