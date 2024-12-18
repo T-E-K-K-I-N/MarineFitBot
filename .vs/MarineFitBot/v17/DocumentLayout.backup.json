@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\MarineFitBot\\MarineFitBot\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5DD7B81C-C099-4632-A075-07624D173827}|MarineFitBot\\MarineFitBot.Infra.Data\\MarineFitBot.Infra.Data.csproj|d:\\projects\\marinefitbot\\marinefitbot\\marinefitbot\\marinefitbot.infra.data\\repositories\\trainingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DD7B81C-C099-4632-A075-07624D173827}|MarineFitBot\\MarineFitBot.Infra.Data\\MarineFitBot.Infra.Data.csproj|solutionrelative:marinefitbot\\marinefitbot.infra.data\\repositories\\trainingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DD7B81C-C099-4632-A075-07624D173827}|MarineFitBot\\MarineFitBot.Infra.Data\\MarineFitBot.Infra.Data.csproj|d:\\projects\\marinefitbot\\marinefitbot\\marinefitbot\\marinefitbot.infra.data\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DD7B81C-C099-4632-A075-07624D173827}|MarineFitBot\\MarineFitBot.Infra.Data\\MarineFitBot.Infra.Data.csproj|solutionrelative:marinefitbot\\marinefitbot.infra.data\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3C23FE5-46DD-496D-A451-34638468A4B8}|MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj|d:\\projects\\marinefitbot\\marinefitbot\\marinefitbot\\marinefitbot.domain\\interfaces\\repositories\\itrainingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3C23FE5-46DD-496D-A451-34638468A4B8}|MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj|solutionrelative:marinefitbot\\marinefitbot.domain\\interfaces\\repositories\\itrainingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrainingsRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\TrainingsRepository.cs",
+              "RelativeDocumentMoniker": "MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\TrainingsRepository.cs",
+              "ToolTip": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\TrainingsRepository.cs",
+              "RelativeToolTip": "MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\TrainingsRepository.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAQwJ0AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T16:21:19.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ITrainingsRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\Interfaces\\Repositories\\ITrainingsRepository.cs",
+              "RelativeDocumentMoniker": "MarineFitBot\\MarineFitBot.Domain\\Interfaces\\Repositories\\ITrainingsRepository.cs",
+              "ToolTip": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\Interfaces\\Repositories\\ITrainingsRepository.cs",
+              "RelativeToolTip": "MarineFitBot\\MarineFitBot.Domain\\Interfaces\\Repositories\\ITrainingsRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T15:08:30.568Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "f904d9f7-438e-4d7d-a741-721acaa21888",
+        "Display": 1,
+        "X": 238,
+        "Y": 176,
+        "Width": 1553,
+        "Height": 802,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\UsersRepository.cs",
+              "ToolTip": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\UsersRepository.cs",
+              "RelativeToolTip": "MarineFitBot\\MarineFitBot.Infra.Data\\Repositories\\UsersRepository.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAuwK4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T15:03:42.102Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

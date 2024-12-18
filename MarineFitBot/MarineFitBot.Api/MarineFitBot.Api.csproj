@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MarineFitBot.Application\MarineFitBot.Application.csproj" />
+      <ProjectReference Include="..\MarineFitBot.Domain\MarineFitBot.Domain.csproj" />
       <ProjectReference Include="..\MarineFitBot.Infra.Data\MarineFitBot.Infra.Data.csproj" />
     </ItemGroup>
 </Project>

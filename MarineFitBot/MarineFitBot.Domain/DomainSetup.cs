@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MarineFitBot.Domain
+namespace MarineFitBot.Domain;
+
+public static class DomainSetup
 {
-	public static class DomainSetup
-	{
-		public static void AddDomainLayer(this IServiceCollection services) {}
-	}
+	public static void AddDomainLayer(this IServiceCollection services) {}
 }

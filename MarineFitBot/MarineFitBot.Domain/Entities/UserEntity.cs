@@ -7,7 +7,7 @@ namespace MarineFitBot.Domain.Entities;
 /// Сущность пользователя
 /// </summary>
 [Table("users")]
-public class User
+public class UserEntity
 {
 	/// <summary>
 	/// Уникальный идентификатор пользователя
@@ -29,8 +29,6 @@ public class User
 	/// </summary>
 	public Role Role { get; set; }
 
-	/// <summary>
-	/// Список тренировок, связанных с пользователем
-	/// </summary>
-	public List<Training> Trainings { get; set; } = new();
+
+	public virtual ICollection<TrainingEntity> Trainings { get; set; }
 }

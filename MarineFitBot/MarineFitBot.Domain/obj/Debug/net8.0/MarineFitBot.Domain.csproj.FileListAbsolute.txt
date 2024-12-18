@@ -20,3 +20,5 @@ D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug
 D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug\net8.0\refint\MarineFitBot.Domain.dll
 D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug\net8.0\MarineFitBot.Domain.pdb
 D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug\net8.0\ref\MarineFitBot.Domain.dll
+D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug\net8.0\MarineFitBot.Domain.csproj.AssemblyReference.cache
+D:\Projects\MarineFitBot\MarineFitBot\MarineFitBot\MarineFitBot.Domain\obj\Debug\net8.0\MarineFitBot.Domain.sourcelink.json

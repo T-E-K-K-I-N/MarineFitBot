@@ -12,13 +12,13 @@ public interface ITrainingService
 	/// </summary>
 	/// <param name="userId">Идентификатор пользователя</param>
 	/// <returns>Список тренировок</returns>
-	Task<List<Training>> GetUserTrainingsAsync(Guid userId);
+	Task<List<TrainingEntity>> GetUserTrainingsAsync(Guid userId);
 
 	/// <summary>
 	/// Получить расписание тренировок для администратора
 	/// </summary>
 	/// <returns>Список тренировок</returns>
-	Task<List<Training>> GetAdminScheduleAsync();
+	Task<List<TrainingEntity>> GetAdminScheduleAsync();
 
 	/// <summary>
 	/// Создать тренировку для пользователя

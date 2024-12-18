@@ -510,9 +510,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj": {
-              "projectPath": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj"
-            },
             "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj": {
               "projectPath": "D:\\Projects\\MarineFitBot\\MarineFitBot\\MarineFitBot\\MarineFitBot.Domain\\MarineFitBot.Domain.csproj"
             }

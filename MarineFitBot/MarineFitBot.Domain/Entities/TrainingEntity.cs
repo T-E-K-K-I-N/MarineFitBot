@@ -1,11 +1,13 @@
 ﻿using MarineFitBot.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MarineFitBot.Domain.Entities;
 
 /// <summary>
 /// Сущность, представляющая тренировку
 /// </summary>
-public class Training
+[Table("trainings")]
+public class TrainingEntity
 {
 	/// <summary>
 	/// Идентификатор тренировки
@@ -31,4 +33,9 @@ public class Training
 	/// Рекомендации администратора по тренировке
 	/// </summary>
 	public string? Recommendations { get; set; }
+
+	/// <summary>
+	/// Foreign Key
+	/// </summary>
+	public virtual UserEntity Users { get; set; }
 }
