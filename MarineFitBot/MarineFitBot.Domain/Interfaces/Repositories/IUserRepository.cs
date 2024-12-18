@@ -20,6 +20,11 @@ public interface IUserRepository
 	Task<User?> CreateAsync(User training, CancellationToken cancellationToken);
 	
 	/// <summary>
+	/// Обновляет пользователя
+	/// </summary>
+	Task<User?> UpdateAsync(User training, CancellationToken cancellationToken);
+	
+	/// <summary>
 	/// Удаляет тренировку
 	/// </summary>
 	Task DeleteAsync(Training training, CancellationToken cancellationToken);

@@ -1,10 +1,12 @@
-﻿using MarineFitBot.Domain.Enums;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using MarineFitBot.Domain.Enums;
 
 namespace MarineFitBot.Domain.Entities;
 
 /// <summary>
 /// Сущность пользователя
 /// </summary>
+[Table("users")]
 public class User
 {
 	/// <summary>
