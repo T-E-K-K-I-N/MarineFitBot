@@ -4,3 +4,24 @@
 
 /.vs/MarineFitBot/FileContentIndex/61db395f-baae-4206-b661-367a1fafccf6.vsidx
 *.vsidx
+/MarineFitBot/MarineFitBot.Application/bin/Debug/net8.0/MarineFitBot.Application.dll
+/MarineFitBot/MarineFitBot.Application/bin/Debug/net8.0/MarineFitBot.Application.pdb
+/MarineFitBot/MarineFitBot.Application/bin/Debug/net8.0/MarineFitBot.Domain.dll
+/MarineFitBot/MarineFitBot.Application/bin/Debug/net8.0/MarineFitBot.Domain.pdb
+/MarineFitBot/MarineFitBot.Domain/bin/Debug/net8.0/MarineFitBot.Domain.dll
+/MarineFitBot/MarineFitBot.Domain/bin/Debug/net8.0/MarineFitBot.Domain.pdb
+/.vs/MarineFitBot/config/applicationhost.config
+/.vs/MarineFitBot/DesignTimeBuild/.dtbcache.v2
+/.vs/MarineFitBot/v17/.suo
+/.vs/MarineFitBot/v17/DocumentLayout.backup.json
+/.vs/MarineFitBot/v17/DocumentLayout.json
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/ref/MarineFitBot.Application.dll
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/refint/MarineFitBot.Application.dll
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/MarineFitBot.Application.AssemblyInfoInputs.cache
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/MarineFitBot.Application.csproj.AssemblyReference.cache
+*.BuildWithSkipAnalyzers
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/MarineFitBot.Application.dll
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/MarineFitBot.Application.pdb
+/MarineFitBot/MarineFitBot.Application/obj/Debug/net8.0/MarineFitBot.Application.sourcelink.json
+/MarineFitBot/MarineFitBot.Domain/obj/Debug/net8.0/ref/MarineFitBot.Domain.dll
+/MarineFitBot/MarineFitBot.Domain/obj/Debug/net8.0/MarineFitBot.Domain.AssemblyInfoInputs.cache
