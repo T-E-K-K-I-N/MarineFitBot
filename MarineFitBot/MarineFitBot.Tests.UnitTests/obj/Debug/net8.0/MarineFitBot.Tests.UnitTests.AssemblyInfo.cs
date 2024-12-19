@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarineFitBot.Tests.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a4c8f9f675845349f754a8551847886abc8d17c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+621b2cc05511335ef72e328152c86f647616faba")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarineFitBot.Tests.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarineFitBot.Tests.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
