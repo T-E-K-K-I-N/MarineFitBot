@@ -34,7 +34,7 @@ namespace MarineFitBot.WebApi
             services.AddDomainLayer();
             services.AddInfraDataLayer(configuration);
 
-            services.AddHostedService<TelegramBotBackgroundService>();
+           // services.AddHostedService<TelegramBotBackgroundService>();
 
             services.Configure<TelegramOptions>(configuration.GetSection(TelegramOptions.Telegram));
         }

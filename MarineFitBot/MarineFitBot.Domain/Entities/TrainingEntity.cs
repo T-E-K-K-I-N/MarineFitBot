@@ -37,5 +37,5 @@ public class TrainingEntity
 	/// <summary>
 	/// Foreign Key
 	/// </summary>
-	public virtual UserEntity Users { get; set; }
+	public virtual UserEntity? Users { get; set; }
 }

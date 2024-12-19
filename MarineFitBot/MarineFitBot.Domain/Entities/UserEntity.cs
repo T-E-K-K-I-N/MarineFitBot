@@ -30,5 +30,5 @@ public class UserEntity
 	public Role Role { get; set; }
 
 
-	public virtual ICollection<TrainingEntity> Trainings { get; set; }
+	public virtual ICollection<TrainingEntity>? Trainings { get; set; }
 }
