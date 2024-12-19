@@ -7,7 +7,7 @@ using Telegram.Bot.Types;
 
 namespace MarineFitBot.WebApi.Controllers
 {
-    [Route("api/[controller][action]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController(IUsersRepository usersRepository, ILogger<UserController> logger) : ControllerBase
     {

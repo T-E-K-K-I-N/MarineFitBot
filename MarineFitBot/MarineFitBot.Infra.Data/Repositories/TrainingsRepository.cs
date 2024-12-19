@@ -1,4 +1,5 @@
 ﻿using MarineFitBot.Domain.Entities;
+using MarineFitBot.Domain.Enums;
 using MarineFitBot.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -30,6 +31,15 @@ namespace MarineFitBot.Infra.Data.Repositories
             try
             {
                 ValidateParams(training);
+
+                if (training.Date == DateTime.MinValue)
+                    training.Date = DateTime.Now.AddDays(1).ToUniversalTime();
+
+                if (training.Date < DateTime.Now)
+                    throw new InvalidOperationException($"Невозможно создать тренировку, т.к. дата " +
+                        $"начала действия не может быть меньше текущей даты");
+
+                training.Date = training.Date.ToUniversalTime();
 
                 using var context = _dbContextFactory.CreateDbContext();
 
@@ -132,7 +142,26 @@ namespace MarineFitBot.Infra.Data.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Произошла ошибка при получении тренировки.");
+                _logger.LogError(ex, "Произошла ошибка при получении тренировок.");
+                return null;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<List<TrainingEntity>?> GetByStatusAsync(TrainingStatus status, CancellationToken cancellationToken)
+        {
+            try
+            {
+                using var context = _dbContextFactory.CreateDbContext();
+
+                var result = await context.Trainings.AsNoTracking()
+                    .Where(t => t.Status == status).ToListAsync(cancellationToken);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Произошла ошибка при получении тренировок.");
                 return null;
             }
         }
@@ -143,6 +172,15 @@ namespace MarineFitBot.Infra.Data.Repositories
             try
             {
                 ValidateParams(training);
+
+                if(training.Date == DateTime.MinValue)
+                    training.Date = DateTime.Now.AddDays(1).ToUniversalTime();
+
+                if(training.Date < DateTime.Now)
+                    throw new InvalidOperationException($"Невозможно обновить тренировку, т.к. дата " +
+                        $"начала действия не может быть меньше текущей даты");
+
+                training.Date = training.Date.ToUniversalTime();
 
                 using var context = _dbContextFactory.CreateDbContext();
 

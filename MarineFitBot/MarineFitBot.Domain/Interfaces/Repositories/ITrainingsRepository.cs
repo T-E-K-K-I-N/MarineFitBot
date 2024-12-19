@@ -1,4 +1,5 @@
 ﻿using MarineFitBot.Domain.Entities;
+using MarineFitBot.Domain.Enums;
 
 namespace MarineFitBot.Domain.Interfaces.Repositories;
 
@@ -21,11 +22,16 @@ public interface ITrainingsRepository
 	/// Возвращает список тренировок пользователя
 	/// </summary>
 	Task<List<TrainingEntity>?> GetByUserIdAsync(Guid userId, CancellationToken cancellationToken);
-	
-	/// <summary>
-	/// Создает тренировку
-	/// </summary>
-	Task<TrainingEntity?> CreateAsync(TrainingEntity training, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Возвращает список тренировок в конкретном статусе
+    /// </summary>
+    Task<List<TrainingEntity>?> GetByStatusAsync(TrainingStatus status, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Создает тренировку
+    /// </summary>
+    Task<TrainingEntity?> CreateAsync(TrainingEntity training, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Обновляет тренировку

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarineFitBot.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb4bfb31ad8229f23dc4153ab6b950a8eb213c64")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7951e69c6c23cd716dff4b2099f2a63c602ab721")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarineFitBot.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarineFitBot.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
