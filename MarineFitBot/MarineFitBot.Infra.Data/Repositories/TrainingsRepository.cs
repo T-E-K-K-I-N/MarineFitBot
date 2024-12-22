@@ -14,14 +14,13 @@ namespace MarineFitBot.Infra.Data.Repositories
     /// <summary>
     /// Репозиторий тренировок 
     /// </summary>
-    public class TrainingsRepository : ITrainingsRepository
+    public class TrainingsRepository : RepositoryBase<TrainingEntity>, ITrainingsRepository
     {
-        private readonly IDbContextFactory<MarineFitBotContext> _dbContextFactory;
         private readonly ILogger<TrainingsRepository> _logger;
 
         public TrainingsRepository(IDbContextFactory<MarineFitBotContext> dbContextFactory, ILogger<TrainingsRepository> logger)
+            : base(dbContextFactory)
         {
-            _dbContextFactory = dbContextFactory;
             _logger = logger;
         }
 
@@ -41,22 +40,15 @@ namespace MarineFitBot.Infra.Data.Repositories
 
                 training.Date = training.Date.ToUniversalTime();
 
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var existingDate = await context.Trainings.AsNoTracking()
-                    .SingleOrDefaultAsync(t => t.Date == training.Date, cancellationToken);
-
+                var existingDate = await FindSingleByConditionAsync(t => t.Date == training.Date, cancellationToken);
 
                 if (existingDate != null)
                     throw new InvalidOperationException($"Тренировки с таким временем: " +
                         $"'{training.Date.ToString("dd.MM.yyyy HH.mm")}' уже существует.");
 
-                var insertedEntity = context.Trainings.Add(training).Entity;
+                await InsertEntityAsync(training, cancellationToken);
 
-                await context.SaveChangesAsync(cancellationToken);
-
-                return insertedEntity;
-
+                return training;
             }
             catch (Exception ex)
             {
@@ -70,19 +62,14 @@ namespace MarineFitBot.Infra.Data.Repositories
         {
             try
             {
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var existing = await context.Trainings.AsNoTracking()
-                    .SingleOrDefaultAsync(t => t.Id == id, cancellationToken);
+                var existing = await FindByIdAsync(id, cancellationToken);
 
                 if (existing == null)
                     throw new InvalidOperationException($"Тренировки с идентификатором: '{id}' не существует.");
 
-                var deletedEntity = context.Trainings.Remove(existing).Entity;
+                await DeleteEntityAsync(existing, cancellationToken);
 
-                await context.SaveChangesAsync(cancellationToken);
-
-                _logger.LogInformation($"Тренировка с идентификатором ID: '{id}' удален.");
+                _logger.LogInformation($"Тренировка с идентификатором ID: '{id}' удалена.");
             }
             catch (Exception ex)
             {
@@ -94,16 +81,11 @@ namespace MarineFitBot.Infra.Data.Repositories
         public async Task<List<TrainingEntity>?> GetAllAsync(CancellationToken cancellationToken)
         {
             try
-            {
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var result = await context.Trainings.AsNoTracking().ToListAsync(cancellationToken);
-
-                return result;
+            { 
+                return await FindAllAsync(cancellationToken);
             }
             catch (Exception ex)
             {
-
                 _logger.LogError(ex, "Произошла ошибка при получении списка всех тренировок.");
                 return null;
             }
@@ -114,12 +96,7 @@ namespace MarineFitBot.Infra.Data.Repositories
         {
             try
             {
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var result = await context.Trainings.AsNoTracking()
-                    .SingleOrDefaultAsync(t => t.Id == id, cancellationToken);
-
-                return result;
+                return await FindByIdAsync(id, cancellationToken);
             }
             catch (Exception ex)
             {
@@ -133,12 +110,7 @@ namespace MarineFitBot.Infra.Data.Repositories
         {
             try
             {
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var result = await context.Trainings.AsNoTracking()
-                    .Where(t => t.UserId == userId).ToListAsync(cancellationToken);
-
-                return result;
+                return await FindByConditionAsync(_ => _.UserId == userId, cancellationToken);
             }
             catch (Exception ex)
             {
@@ -152,12 +124,7 @@ namespace MarineFitBot.Infra.Data.Repositories
         {
             try
             {
-                using var context = _dbContextFactory.CreateDbContext();
-
-                var result = await context.Trainings.AsNoTracking()
-                    .Where(t => t.Status == status).ToListAsync(cancellationToken);
-
-                return result;
+                return await FindByConditionAsync(_ => _.Status == status, cancellationToken);
             }
             catch (Exception ex)
             {
@@ -182,23 +149,17 @@ namespace MarineFitBot.Infra.Data.Repositories
 
                 training.Date = training.Date.ToUniversalTime();
 
-                using var context = _dbContextFactory.CreateDbContext();
 
-                var existing = await context.Trainings.AsNoTracking()
-                    .SingleOrDefaultAsync(u => u.Id == training.Id, cancellationToken) ??
+                var existing = await FindByIdAsync(training.Id ,cancellationToken) ??
                     throw new InvalidOperationException($"Тренировки с идентификатором: '{training.Id}' не существует.");
 
-                var existingDate = await context.Trainings.AsNoTracking()
-                    .SingleOrDefaultAsync(t => t.Date == training.Date, cancellationToken);
+                var existingDate = await FindSingleByConditionAsync(_ => _.Date == training.Date, cancellationToken);
 
                 if (existingDate != null && existingDate.Id != training.Id)
                     throw new InvalidOperationException("Невозможно изменить тренировку, " +
                         "т.к. тренировка с такими данными уже существует.");
 
-                context.Trainings.Entry(existing).State = EntityState.Modified;
-                context.Trainings.Entry(existing).CurrentValues.SetValues(training);
-
-                await context.SaveChangesAsync(cancellationToken);
+                await UpdateEntityAsync(training, cancellationToken);
 
                 return training;
             }

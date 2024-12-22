@@ -8,14 +8,13 @@ namespace MarineFitBot.Infra.Data.Repositories;
 /// <summary>
 /// Репозиторий пользователей
 /// </summary>
-public class UsersRepository : IUsersRepository
+public class UsersRepository : RepositoryBase<UserEntity>, IUsersRepository
 {
-    private readonly IDbContextFactory<MarineFitBotContext> _dbContextFactory;
     private readonly ILogger<UsersRepository> _logger;
 
     public UsersRepository(IDbContextFactory<MarineFitBotContext> dbContextFactory, ILogger<UsersRepository> logger)
+        : base(dbContextFactory)
     {
-        _dbContextFactory = dbContextFactory;
         _logger = logger;
     }
 
@@ -26,24 +25,19 @@ public class UsersRepository : IUsersRepository
         {
             ValidateParams(user);
 
-            using var context = _dbContextFactory.CreateDbContext();
+            var existingFullName = await FindSingleByConditionAsync(u => 
+                u.FullName == user.FullName, cancellationToken);
 
-            var existingFullName = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.FullName == user.FullName, cancellationToken);
-
-            var existingTelegramName = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.TelegramName == user.TelegramName, cancellationToken);
+            var existingTelegramName = await FindSingleByConditionAsync(u => 
+                u.TelegramName == user.TelegramName, cancellationToken);
 
             if (existingFullName != null || existingTelegramName != null)
                 throw new InvalidOperationException($"Пользователя с таким именем пользователя: '{user.FullName}'" +
                     $" или Telegram-именем (логином): '{user.TelegramName}' уже существует.");
 
-            var insertedEntity = context.Users.Add(user).Entity;
+            await InsertEntityAsync(user, cancellationToken);
 
-            await context.SaveChangesAsync(cancellationToken);
-
-            return insertedEntity;
-
+            return user;
         }
         catch (Exception ex)
         {
@@ -57,17 +51,12 @@ public class UsersRepository : IUsersRepository
     {
         try
         {
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var existing = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.Id == id, cancellationToken);
+            var existing = await FindByIdAsync(id, cancellationToken);
 
             if (existing == null)
                 throw new InvalidOperationException($"Пользователя с идентификатором: '{id}' не существует.");
 
-            var deletedEntity = context.Users.Remove(existing).Entity;
-
-            await context.SaveChangesAsync(cancellationToken);
+           await DeleteEntityAsync(existing, cancellationToken);
 
             _logger.LogInformation($"Пользователь с идентификатором ID: '{id}' удален.");
         }
@@ -82,15 +71,10 @@ public class UsersRepository : IUsersRepository
     {
         try
         {
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var result = await context.Users.AsNoTracking().ToListAsync(cancellationToken);
-
-            return result;
+            return await FindAllAsync(cancellationToken);
         }
         catch (Exception ex)
         {
-
             _logger.LogError(ex, "Произошла ошибка при получении списка всех пользователей.");
             return null;
         }
@@ -101,12 +85,7 @@ public class UsersRepository : IUsersRepository
     {
         try
         {
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var result = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.Id == id, cancellationToken);
-
-            return result;
+            return await FindByIdAsync(id, cancellationToken);
         }
         catch (Exception ex)
         {
@@ -120,12 +99,7 @@ public class UsersRepository : IUsersRepository
     {
         try
         {
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var result = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.FullName == fullName, cancellationToken);
-
-            return result;
+            return await FindSingleByConditionAsync(u => u.FullName == fullName, cancellationToken);
         }
         catch (Exception ex)
         {
@@ -139,12 +113,7 @@ public class UsersRepository : IUsersRepository
     {
         try
         {
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var result = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.TelegramName == telegramName, cancellationToken);
-
-            return result;
+            return await FindSingleByConditionAsync(u => u.TelegramName == telegramName, cancellationToken);
         }
         catch (Exception ex)
         {
@@ -160,27 +129,21 @@ public class UsersRepository : IUsersRepository
         {
             ValidateParams(user);
 
-            using var context = _dbContextFactory.CreateDbContext();
-
-            var existing = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.Id == user.Id, cancellationToken) ??
+            var existing = await FindByIdAsync(user.Id, cancellationToken) ??
                 throw new InvalidOperationException($"Пользователя с идентификатором: '{user.Id}' не существует.");
 
-            var existingFullName = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.FullName == user.FullName, cancellationToken);
+            var existingFullName = await FindSingleByConditionAsync(u =>
+                u.FullName == user.FullName, cancellationToken);
 
-            var existingTelegramName = await context.Users.AsNoTracking()
-                .SingleOrDefaultAsync(u => u.TelegramName == user.TelegramName, cancellationToken);
+            var existingTelegramName = await FindSingleByConditionAsync(u =>
+                u.TelegramName == user.TelegramName, cancellationToken);
 
             if ((existingFullName != null && existingFullName.Id != user.Id) ||
                 (existingTelegramName != null && existingTelegramName.Id != user.Id))
                 throw new InvalidOperationException("Невозможно изменить пользователя, " +
                     "т.к. пользователь с такими данными уже существует.");
 
-            context.Users.Entry(existing).State = EntityState.Modified;
-            context.Users.Entry(existing).CurrentValues.SetValues(user);
-
-            await context.SaveChangesAsync(cancellationToken);
+            await UpdateEntityAsync(user, cancellationToken);
 
             return user;
         }

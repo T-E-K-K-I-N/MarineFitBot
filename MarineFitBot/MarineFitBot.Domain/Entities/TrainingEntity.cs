@@ -34,8 +34,6 @@ public class TrainingEntity
 	/// </summary>
 	public string? Recommendations { get; set; }
 
-	/// <summary>
-	/// Foreign Key
-	/// </summary>
-	public virtual UserEntity? Users { get; set; }
+	[ForeignKey(nameof(UserId))]
+    public virtual UserEntity? User { get; set; }
 }
