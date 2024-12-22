@@ -22,7 +22,7 @@ namespace MarineFitBot.Infra.Data.EntitiesConfiguration
             builder.Property(_ => _.Recommendations).HasColumnName("recommendations");
             builder.Property(_ => _.UserId).HasColumnName("user_id").IsRequired(true);
 
-            builder.HasOne(x => x.Users)
+            builder.HasOne(x => x.User)
                 .WithMany(e => e.Trainings)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Restrict)
